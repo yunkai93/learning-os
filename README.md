@@ -11,7 +11,20 @@ Learning OS 是一个可复用、证据驱动的 Codex 辅助学习系统。
 - `workspace/`：真实练习、项目和实验产物。
 - `journal/`：长期笔记、错误、问题、决策和跨课程洞察。
 
-第一版故意不内置任何具体课程包。先把学习系统完整做出来，再用它来测试课程包创建。
+当前已创建并激活第一条课程包：`fullstack-learning-system`。它是第一条试运行路线，用来验证 Learning OS 的课程包生成、session 规划、证据验收和跨设备协作流程。
+
+当前下一步由状态文件决定，不靠 README 手写判断。可以运行：
+
+```bash
+npm run learn -- doctor
+```
+
+当前预期状态是：
+
+- Active track: `fullstack-learning-system`
+- Current module: `m01-ts-node-foundation`
+- Active session: none
+- Next step: 规划试运行 `session-001`
 
 ## 快速使用
 
@@ -27,7 +40,7 @@ npm run validate
 npm run status
 ```
 
-创建一个空课程包壳：
+新增第二条课程包时，先创建课程包壳：
 
 ```bash
 npm run learn -- new-track my-track "My Track"
@@ -40,6 +53,8 @@ engine/prompts/create-track.md
 ```
 
 然后把结果写入该课程包的 `source/` 文件。
+
+当前第一条课程包已生成，不需要重复创建。除非要新增第二条学习路线，否则不要运行 `new-track`。
 
 ## 使用模型
 

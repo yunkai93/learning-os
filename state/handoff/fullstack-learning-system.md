@@ -24,7 +24,8 @@
 ## 证据
 
 - 当前只是课程包生成阶段，还没有学习 evidence。
-- `npm run validate` 需要在下一步执行确认。
+- `npm run validate` 已通过。
+- `npm run learn -- doctor` 已能显示 active track、current module 和下一步。
 
 ## 阻塞点
 
