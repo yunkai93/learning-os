@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LearnerProfile",
+  "type": "object",
+  "required": ["schemaVersion", "background", "preferences", "constraints", "goals"],
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "background": {
+      "type": "object",
+      "properties": {
+        "knownStrengths": { "type": "array", "items": { "type": "string" } },
+        "knownWeaknesses": { "type": "array", "items": { "type": "string" } },
+        "priorExperience": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "preferences": {
+      "type": "object",
+      "properties": {
+        "pace": { "type": "string" },
+        "sessionLengthMinutes": { "type": ["integer", "null"], "minimum": 1 },
+        "teachingStyle": { "type": "array", "items": { "type": "string" } },
+        "codexHelpLevel": { "enum": ["minimal", "balanced", "hands_on", "adaptive"] }
+      },
+      "additionalProperties": false
+    },
+    "constraints": { "type": "array", "items": { "type": "string" } },
+    "goals": { "type": "array", "items": { "type": "string" } },
+    "updatedAt": { "type": "string" }
+  },
+  "additionalProperties": false
+}
+

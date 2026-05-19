@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LearningSessionState",
+  "type": "object",
+  "required": ["id", "trackId", "status", "targetOutcomeIds"],
+  "properties": {
+    "id": { "type": "string" },
+    "trackId": { "type": "string" },
+    "moduleId": { "type": ["string", "null"] },
+    "status": {
+      "enum": ["planned", "active", "paused", "assessing", "completed", "failed"]
+    },
+    "targetOutcomeIds": { "type": "array", "items": { "type": "string" } },
+    "result": { "enum": ["pass", "partial", "fail", "unassessed"] },
+    "independence": {
+      "enum": ["solo", "hinted", "assisted", "codex_written", "unknown"]
+    },
+    "nextAction": {
+      "enum": ["advance", "remediate", "repeat_smaller", "review_later", "revise_track", "continue"]
+    }
+  },
+  "additionalProperties": true
+}
+

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LearningRubric",
+  "type": "object",
+  "required": ["id", "title", "criteria", "evidenceRequirements"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "title": { "type": "string" },
+    "appliesToOutcomeIds": { "type": "array", "items": { "type": "string" } },
+    "criteria": { "type": "array", "items": { "type": "object" } },
+    "evidenceRequirements": { "type": "array", "items": { "type": "string" } },
+    "independenceRules": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}
+

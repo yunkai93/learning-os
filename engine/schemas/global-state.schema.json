@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GlobalLearningState",
+  "type": "object",
+  "required": ["schemaVersion", "activeTrackId", "activeSessionId", "maxInProgressTracks"],
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "activeTrackId": { "type": ["string", "null"] },
+    "activeSessionId": { "type": ["string", "null"] },
+    "maxInProgressTracks": { "type": "integer", "minimum": 1 },
+    "recentTrackIds": { "type": "array", "items": { "type": "string" } },
+    "createdAt": { "type": "string" },
+    "updatedAt": { "type": "string" }
+  },
+  "additionalProperties": false
+}
+

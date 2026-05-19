@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LearningProject",
+  "type": "object",
+  "required": ["id", "title", "purpose", "outcomeIds", "milestones"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "title": { "type": "string" },
+    "purpose": { "type": "string" },
+    "workspacePath": { "type": "string" },
+    "outcomeIds": { "type": "array", "items": { "type": "string" } },
+    "milestones": { "type": "array", "items": { "type": "object" } },
+    "completionEvidence": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}
+

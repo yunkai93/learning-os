@@ -1,0 +1,15 @@
+{
+  "name": "learning-os",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "learn": "node engine/cli/learn.mjs",
+    "status": "node engine/cli/learn.mjs status",
+    "validate": "node engine/cli/learn.mjs validate"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
+

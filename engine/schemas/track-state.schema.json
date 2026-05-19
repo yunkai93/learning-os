@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TrackState",
+  "type": "object",
+  "required": ["trackId", "status", "currentModuleId", "currentSessionId", "outcomes"],
+  "properties": {
+    "trackId": { "type": "string" },
+    "status": { "enum": ["planned", "active", "paused", "completed", "archived"] },
+    "currentModuleId": { "type": ["string", "null"] },
+    "currentSessionId": { "type": ["string", "null"] },
+    "nextStep": { "type": "string" },
+    "blockedBy": { "type": "array", "items": { "type": "string" } },
+    "outcomes": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "not_started",
+          "introduced",
+          "practicing",
+          "demonstrated_with_help",
+          "demonstrated_solo",
+          "mastered_for_now",
+          "needs_review"
+        ]
+      }
+    },
+    "updatedAt": { "type": "string" }
+  },
+  "additionalProperties": false
+}
+
