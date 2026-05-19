@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
+import { spawnSync } from "node:child_process";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../..");
 
@@ -13,6 +14,7 @@ const requiredPaths = [
   "engine/policies/session-flow.md",
   "engine/policies/assessment-flow.md",
   "engine/policies/handoff-flow.md",
+  "engine/policies/sync-flow.md",
   "engine/prompts/create-track.md",
   "engine/prompts/plan-session.md",
   "engine/prompts/assess-session.md",
@@ -117,6 +119,19 @@ function saveGlobalState(state) {
   state.updatedAt = now();
   if (!state.createdAt) state.createdAt = state.updatedAt;
   writeJson("state/global.json", state);
+}
+
+function runGit(args) {
+  const result = spawnSync("git", args, {
+    cwd: root,
+    encoding: "utf8"
+  });
+  return {
+    ok: result.status === 0,
+    stdout: result.stdout.trim(),
+    stderr: result.stderr.trim(),
+    status: result.status
+  };
 }
 
 function makeTrackSource(trackId, title) {
@@ -359,6 +374,125 @@ function cmdStatus() {
   }
 }
 
+function readJsonFilesInDir(relativeDir) {
+  const fullDir = rel(relativeDir);
+  if (!fs.existsSync(fullDir)) return [];
+  return fs
+    .readdirSync(fullDir)
+    .filter((file) => file.endsWith(".json"))
+    .sort()
+    .map((file) => {
+      const relativePath = `${relativeDir}/${file}`;
+      return {
+        relativePath,
+        value: readJson(relativePath)
+      };
+    });
+}
+
+function pushDuplicateErrors(errors, label, ids) {
+  const seen = new Set();
+  for (const id of ids) {
+    if (seen.has(id)) errors.push(`Duplicate ${label} id: ${id}`);
+    seen.add(id);
+  }
+}
+
+function validateTrackPackage(trackId, errors) {
+  const trackPath = `tracks/${trackId}/source/track.json`;
+  let track = null;
+  try {
+    track = readJson(trackPath);
+  } catch (error) {
+    errors.push(error.message);
+    return;
+  }
+
+  if (track.id !== trackId) {
+    errors.push(`Track ${trackId} source id mismatch: ${track.id}`);
+  }
+
+  const moduleFiles = readJsonFilesInDir(`tracks/${trackId}/source/modules`);
+  const projectFiles = readJsonFilesInDir(`tracks/${trackId}/source/projects`);
+  const rubricFiles = readJsonFilesInDir(`tracks/${trackId}/source/rubrics`);
+  const moduleIds = moduleFiles.map(({ value }) => value.id);
+  const projectIds = projectFiles.map(({ value }) => value.id);
+  const rubricIds = rubricFiles.map(({ value }) => value.id);
+  const outcomeIds = [];
+
+  pushDuplicateErrors(errors, "module", moduleIds);
+  pushDuplicateErrors(errors, "project", projectIds);
+  pushDuplicateErrors(errors, "rubric", rubricIds);
+
+  for (const moduleId of track.moduleIds ?? []) {
+    if (!moduleIds.includes(moduleId)) {
+      errors.push(`Track ${trackId} references missing module: ${moduleId}`);
+    }
+  }
+  for (const projectId of track.projectIds ?? []) {
+    if (!projectIds.includes(projectId)) {
+      errors.push(`Track ${trackId} references missing project: ${projectId}`);
+    }
+  }
+  for (const rubricId of track.rubricIds ?? []) {
+    if (!rubricIds.includes(rubricId)) {
+      errors.push(`Track ${trackId} references missing rubric: ${rubricId}`);
+    }
+  }
+
+  for (const { relativePath, value: module } of moduleFiles) {
+    if (!track.moduleIds?.includes(module.id)) {
+      errors.push(`Module not listed in track.moduleIds: ${module.id}`);
+    }
+    if (!Array.isArray(module.outcomes) || module.outcomes.length === 0) {
+      errors.push(`Module has no outcomes: ${relativePath}`);
+    }
+    for (const outcome of module.outcomes ?? []) {
+      outcomeIds.push(outcome.id);
+      if (!["concept", "skill", "artifact", "diagnostic"].includes(outcome.type)) {
+        errors.push(`Invalid outcome type in ${relativePath}: ${outcome.id}`);
+      }
+    }
+  }
+
+  pushDuplicateErrors(errors, "outcome", outcomeIds);
+
+  for (const { relativePath, value: module } of moduleFiles) {
+    for (const prerequisiteOutcomeId of module.prerequisiteOutcomeIds ?? []) {
+      if (!outcomeIds.includes(prerequisiteOutcomeId)) {
+        errors.push(`Missing prerequisite outcome in ${relativePath}: ${prerequisiteOutcomeId}`);
+      }
+    }
+    for (const projectId of module.projectIds ?? []) {
+      if (!projectIds.includes(projectId)) {
+        errors.push(`Missing module project reference in ${relativePath}: ${projectId}`);
+      }
+    }
+  }
+
+  for (const { relativePath, value: project } of projectFiles) {
+    if (!track.projectIds?.includes(project.id)) {
+      errors.push(`Project not listed in track.projectIds: ${project.id}`);
+    }
+    for (const outcomeId of project.outcomeIds ?? []) {
+      if (!outcomeIds.includes(outcomeId)) {
+        errors.push(`Missing project outcome reference in ${relativePath}: ${outcomeId}`);
+      }
+    }
+  }
+
+  for (const { relativePath, value: rubric } of rubricFiles) {
+    if (!track.rubricIds?.includes(rubric.id)) {
+      errors.push(`Rubric not listed in track.rubricIds: ${rubric.id}`);
+    }
+    for (const outcomeId of rubric.appliesToOutcomeIds ?? []) {
+      if (!outcomeIds.includes(outcomeId)) {
+        errors.push(`Missing rubric outcome reference in ${relativePath}: ${outcomeId}`);
+      }
+    }
+  }
+}
+
 function cmdValidate() {
   const errors = [];
 
@@ -426,14 +560,7 @@ function cmdValidate() {
       errors.push(`Track ${trackId} has no source/track.json`);
       continue;
     }
-    try {
-      const source = readJson(sourcePath);
-      if (source.id !== trackId) {
-        errors.push(`Track ${trackId} source id mismatch: ${source.id}`);
-      }
-    } catch (error) {
-      errors.push(error.message);
-    }
+    validateTrackPackage(trackId, errors);
   }
 
   if (errors.length) {
@@ -444,6 +571,76 @@ function cmdValidate() {
   }
 
   console.log("Validation passed");
+}
+
+function collectValidationErrors() {
+  const errors = [];
+
+  for (const relativePath of requiredPaths) {
+    if (!exists(relativePath)) errors.push(`Missing ${relativePath}`);
+  }
+
+  try {
+    loadGlobalState();
+  } catch (error) {
+    errors.push(error.message);
+  }
+
+  for (const trackId of listTrackIds()) {
+    if (!exists(`tracks/${trackId}/source/track.json`)) {
+      errors.push(`Track ${trackId} has no source/track.json`);
+      continue;
+    }
+    validateTrackPackage(trackId, errors);
+  }
+
+  return errors;
+}
+
+function cmdDoctor() {
+  const errors = collectValidationErrors();
+  const globalState = loadGlobalState();
+  console.log("Learning OS doctor");
+  console.log(`- Validation: ${errors.length ? "failed" : "passed"}`);
+  for (const error of errors) console.log(`  - ${error}`);
+
+  const insideGit = runGit(["rev-parse", "--is-inside-work-tree"]);
+  if (!insideGit.ok) {
+    console.log("- Git: not a repository");
+    return;
+  }
+
+  const branch = runGit(["branch", "--show-current"]);
+  const upstream = runGit(["rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}"]);
+  const status = runGit(["status", "--short", "--branch"]);
+  console.log(`- Branch: ${branch.stdout || "unknown"}`);
+  console.log(`- Upstream: ${upstream.ok ? upstream.stdout : "none"}`);
+  console.log("- Git status:");
+  console.log(status.stdout || "  clean");
+
+  if (globalState.activeTrackId) {
+    const trackStatePath = `state/tracks/${globalState.activeTrackId}.json`;
+    if (exists(trackStatePath)) {
+      const trackState = readJson(trackStatePath);
+      const sessionId = globalState.activeSessionId ?? trackState.currentSessionId;
+      console.log(`- Active track: ${globalState.activeTrackId}`);
+      console.log(`- Track status: ${trackState.status}`);
+      console.log(`- Current module: ${trackState.currentModuleId ?? "none"}`);
+      console.log(`- Current session: ${sessionId ?? "none"}`);
+      console.log(`- Next step: ${trackState.nextStep || "none"}`);
+      if (sessionId) {
+        const sessionStatePath = sessionPath(globalState.activeTrackId, sessionId, "json");
+        if (exists(sessionStatePath)) {
+          const session = readJson(sessionStatePath);
+          console.log(`- Session status: ${session.status}`);
+        } else {
+          console.log(`- Session status: missing file ${sessionStatePath}`);
+        }
+      }
+    }
+  } else {
+    console.log("- Active track: none");
+  }
 }
 
 function cmdNewTrack(args) {
@@ -704,6 +901,7 @@ function usage() {
 Commands:
   status                         查看当前学习状态
   validate                       校验系统结构和 JSON 文件
+  doctor                         检查跨设备同步安全状态
   new-track <id> "<title>"       创建一个空课程包壳
   switch <id>                    激活一个课程包
   pause                          暂停当前 active track
@@ -725,6 +923,9 @@ function main() {
         break;
       case "validate":
         cmdValidate();
+        break;
+      case "doctor":
+        cmdDoctor();
         break;
       case "new-track":
         cmdNewTrack(args);

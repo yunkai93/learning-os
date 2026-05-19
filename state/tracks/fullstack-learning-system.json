@@ -1,0 +1,10 @@
+{
+  "trackId": "fullstack-learning-system",
+  "status": "active",
+  "currentModuleId": "m01-ts-node-foundation",
+  "currentSessionId": null,
+  "nextStep": "规划试运行 session-001：围绕 TypeScript 与 Node 工程入口，测试学习系统的 session 生成、证据要求和验收流程。",
+  "blockedBy": [],
+  "outcomes": {},
+  "updatedAt": "2026-05-19T08:30:01Z"
+}

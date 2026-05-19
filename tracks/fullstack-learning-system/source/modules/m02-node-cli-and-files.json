@@ -1,0 +1,46 @@
+{
+  "id": "m02-node-cli-and-files",
+  "title": "Node 文件、路径、JSON 与 CLI",
+  "purpose": "用一个小型学习日志 CLI 建立 Node 运行时基础，让后端不再只是浏览器 JavaScript 的延伸。",
+  "prerequisiteOutcomeIds": [
+    "o01-explain-ts-node-project",
+    "o02-write-typed-functions",
+    "o03-use-type-and-interface"
+  ],
+  "outcomes": [
+    {
+      "id": "o05-read-write-json-files",
+      "description": "能用 Node 读写 JSON 文件，并处理文件不存在、JSON 解析失败等基础错误",
+      "type": "skill"
+    },
+    {
+      "id": "o06-parse-cli-args",
+      "description": "能解析命令行参数，实现 add/list/done 等最小 CLI 命令",
+      "type": "skill"
+    },
+    {
+      "id": "o07-organize-node-modules",
+      "description": "能把类型、数据读写、命令分发、业务逻辑拆到不同模块",
+      "type": "skill"
+    },
+    {
+      "id": "o08-build-cli-learning-journal",
+      "description": "完成一个本地文件持久化的学习日志 CLI v1",
+      "type": "artifact"
+    }
+  ],
+  "projectIds": [
+    "p01-cli-learning-journal"
+  ],
+  "estimatedSessionRange": {
+    "min": 4,
+    "max": 8
+  },
+  "exitCriteria": [
+    "CLI 能新增、查看、标记完成学习记录",
+    "数据保存到本地 JSON 文件",
+    "能解释同步/异步文件读写的基本差异",
+    "能在 CLI 上做一个小变体功能"
+  ]
+}
+

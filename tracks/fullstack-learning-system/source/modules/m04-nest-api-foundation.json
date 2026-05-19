@@ -1,0 +1,45 @@
+{
+  "id": "m04-nest-api-foundation",
+  "title": "Nest API 基础结构",
+  "purpose": "在理解 HTTP 本体后进入 Nest，掌握 controller、service、module、DTO、validation 和统一错误边界。",
+  "prerequisiteOutcomeIds": [
+    "o09-explain-http-request-response",
+    "o10-build-native-routes",
+    "o11-handle-api-errors"
+  ],
+  "outcomes": [
+    {
+      "id": "o13-explain-nest-layers",
+      "description": "能解释 Nest 中 module、controller、service、DTO 的职责边界",
+      "type": "concept"
+    },
+    {
+      "id": "o14-build-nest-crud",
+      "description": "能为学习目标、学习 session、学习记录等资源实现 Nest CRUD",
+      "type": "skill"
+    },
+    {
+      "id": "o15-validate-dto",
+      "description": "能使用 DTO 和 validation 约束输入，并解释为什么校验不应散落在业务逻辑里",
+      "type": "skill"
+    },
+    {
+      "id": "o16-build-learning-os-api-v1",
+      "description": "完成 Learning OS API 的 Nest 版本 v1",
+      "type": "artifact"
+    }
+  ],
+  "projectIds": [
+    "p03-learning-os-api"
+  ],
+  "estimatedSessionRange": {
+    "min": 6,
+    "max": 10
+  },
+  "exitCriteria": [
+    "至少 3 个资源模块具备清晰 CRUD",
+    "输入校验、错误响应和服务层职责基本清楚",
+    "能从原生 API 对照说明 Nest 抽象解决了什么问题",
+    "能独立添加一个相邻资源模块"
+  ]
+}

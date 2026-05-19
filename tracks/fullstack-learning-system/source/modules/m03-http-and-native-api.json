@@ -1,0 +1,46 @@
+{
+  "id": "m03-http-and-native-api",
+  "title": "HTTP 与原生 Node API",
+  "purpose": "先理解后端本体：请求、响应、路由、状态码、Body、错误，而不是直接进入框架记忆。",
+  "prerequisiteOutcomeIds": [
+    "o05-read-write-json-files",
+    "o06-parse-cli-args",
+    "o07-organize-node-modules"
+  ],
+  "outcomes": [
+    {
+      "id": "o09-explain-http-request-response",
+      "description": "能解释 URL、method、headers、body、status code 和 JSON 响应的作用",
+      "type": "concept"
+    },
+    {
+      "id": "o10-build-native-routes",
+      "description": "能用原生 Node 建立学习记录资源的最小 REST 路由",
+      "type": "skill"
+    },
+    {
+      "id": "o11-handle-api-errors",
+      "description": "能为参数缺失、资源不存在、JSON 错误等场景返回合理状态码",
+      "type": "skill"
+    },
+    {
+      "id": "o12-build-native-learning-api",
+      "description": "完成一个基于原生 Node 的学习记录 API v1",
+      "type": "artifact"
+    }
+  ],
+  "projectIds": [
+    "p02-native-learning-api"
+  ],
+  "estimatedSessionRange": {
+    "min": 5,
+    "max": 9
+  },
+  "exitCriteria": [
+    "能用 curl 或 API client 调通 CRUD",
+    "能解释一次请求从进入服务到返回响应的流程",
+    "能根据常见错误判断是路由、解析、业务还是数据问题",
+    "能把 CLI 中的数据模型迁移到 API 语境"
+  ]
+}
+

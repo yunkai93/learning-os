@@ -1,0 +1,45 @@
+{
+  "id": "p03-learning-os-api",
+  "title": "Learning OS 后端 API",
+  "purpose": "用 Nest、PostgreSQL、Prisma 和鉴权实现学习系统的真实后端。",
+  "workspacePath": "workspace/fullstack-learning-system/projects/learning-os-api",
+  "outcomeIds": [
+    "o13-explain-nest-layers",
+    "o14-build-nest-crud",
+    "o15-validate-dto",
+    "o16-build-learning-os-api-v1",
+    "o17-model-learning-domain",
+    "o18-run-prisma-migrations",
+    "o19-query-relations-pagination",
+    "o20-persist-learning-os-data",
+    "o21-implement-register-login",
+    "o22-protect-current-user-routes",
+    "o23-design-business-rules",
+    "o24-secure-learning-os-api"
+  ],
+  "milestones": [
+    {
+      "id": "p03-m01",
+      "title": "Nest 资源模块 CRUD"
+    },
+    {
+      "id": "p03-m02",
+      "title": "Prisma + PostgreSQL 持久化"
+    },
+    {
+      "id": "p03-m03",
+      "title": "注册登录和受保护接口"
+    },
+    {
+      "id": "p03-m04",
+      "title": "session 状态流转业务规则"
+    }
+  ],
+  "completionEvidence": [
+    "数据库 schema 和 migration",
+    "关键 API 请求响应",
+    "鉴权失败和成功示例",
+    "服务层业务规则解释"
+  ]
+}
+

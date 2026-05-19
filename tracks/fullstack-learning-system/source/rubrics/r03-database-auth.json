@@ -1,0 +1,39 @@
+{
+  "id": "r03-database-auth",
+  "title": "数据库建模、Prisma 与鉴权验收",
+  "appliesToOutcomeIds": [
+    "o17-model-learning-domain",
+    "o18-run-prisma-migrations",
+    "o19-query-relations-pagination",
+    "o20-persist-learning-os-data",
+    "o21-implement-register-login",
+    "o22-protect-current-user-routes",
+    "o23-design-business-rules",
+    "o24-secure-learning-os-api"
+  ],
+  "criteria": [
+    {
+      "result": "pass",
+      "description": "能解释数据模型，完成 migration、关联查询、鉴权链路和服务层业务规则"
+    },
+    {
+      "result": "partial",
+      "description": "功能可运行但模型解释、权限边界或 migration 理解不足"
+    },
+    {
+      "result": "fail",
+      "description": "无法解释表关系、无法独立修复数据或鉴权问题"
+    }
+  ],
+  "evidenceRequirements": [
+    "Prisma schema 和 migration",
+    "数据库关系解释",
+    "登录、未登录、越权场景验证",
+    "业务规则测试或手动验证记录"
+  ],
+  "independenceRules": [
+    "数据库模型如果由 Codex 设计，学习者必须独立改一个关系或约束",
+    "鉴权通过不等于掌握，必须能解释 token、当前用户和权限判断"
+  ]
+}
+

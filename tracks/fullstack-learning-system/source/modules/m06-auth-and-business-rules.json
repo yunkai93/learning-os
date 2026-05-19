@@ -1,0 +1,46 @@
+{
+  "id": "m06-auth-and-business-rules",
+  "title": "鉴权、权限与真实业务规则",
+  "purpose": "让项目从练习 API 进入真实系统：用户、登录、JWT、受保护接口、当前用户、基础权限和服务层业务规则。",
+  "prerequisiteOutcomeIds": [
+    "o17-model-learning-domain",
+    "o18-run-prisma-migrations",
+    "o19-query-relations-pagination"
+  ],
+  "outcomes": [
+    {
+      "id": "o21-implement-register-login",
+      "description": "能实现注册、登录、密码哈希和 JWT 签发",
+      "type": "skill"
+    },
+    {
+      "id": "o22-protect-current-user-routes",
+      "description": "能保护接口并在服务层使用当前用户做权限和数据边界判断",
+      "type": "skill"
+    },
+    {
+      "id": "o23-design-business-rules",
+      "description": "能为学习 session 状态流转、证据提交、验收结果设计服务层规则",
+      "type": "skill"
+    },
+    {
+      "id": "o24-secure-learning-os-api",
+      "description": "完成带鉴权和基础权限的 Learning OS API",
+      "type": "artifact"
+    }
+  ],
+  "projectIds": [
+    "p03-learning-os-api"
+  ],
+  "estimatedSessionRange": {
+    "min": 6,
+    "max": 10
+  },
+  "exitCriteria": [
+    "注册登录链路可运行",
+    "受保护接口不能被未登录用户访问",
+    "学习数据按当前用户隔离",
+    "能解释鉴权、权限、业务规则、安全边界的区别"
+  ]
+}
+

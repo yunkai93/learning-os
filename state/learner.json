@@ -1,18 +1,45 @@
 {
   "schemaVersion": "0.1.0",
   "background": {
-    "knownStrengths": [],
-    "knownWeaknesses": [],
-    "priorExperience": []
+    "knownStrengths": [
+      "有 10 年前端开发经验",
+      "能独立完成 React 页面开发",
+      "具备真实项目经验和前端接口联调直觉"
+    ],
+    "knownWeaknesses": [
+      "TypeScript 基础薄弱",
+      "后端零基础",
+      "需要建立后端思维",
+      "需要防止 Codex 代写造成虚假掌握"
+    ],
+    "priorExperience": [
+      "长期前端开发",
+      "React 页面开发",
+      "真实业务项目开发"
+    ]
   },
   "preferences": {
-    "pace": "",
-    "sessionLengthMinutes": null,
-    "teachingStyle": [],
+    "pace": "正常偏慢，按掌握程度推进，不按固定日期硬推",
+    "sessionLengthMinutes": 150,
+    "teachingStyle": [
+      "先让学习者自己做，优先给提示而不是直接给答案",
+      "从后端思维和真实项目语境解释概念",
+      "每轮都要有可运行、可观察或可复述的正向成果反馈",
+      "用证据和小变体任务确认真正掌握"
+    ],
     "codexHelpLevel": "adaptive"
   },
-  "constraints": [],
-  "goals": [],
-  "updatedAt": ""
+  "constraints": [
+    "工作日每天约 2-3 小时",
+    "周六日每天约 8 小时",
+    "初期 Codex 尽量只给提示和检查，卡住或效率过低时再进入平衡协助",
+    "学习设计需要降低枯燥感，避免因为缺少正向反馈而中断"
+  ],
+  "goals": [
+    "独立完成一个以学习系统为主题的真实全栈项目",
+    "达到可以胜任初级全栈工程师的能力水平",
+    "补齐 TypeScript、后端、数据库、鉴权、测试、部署和项目讲述能力",
+    "形成可迁移到新学习目标的学习系统使用能力"
+  ],
+  "updatedAt": "2026-05-19T08:18:40Z"
 }
-

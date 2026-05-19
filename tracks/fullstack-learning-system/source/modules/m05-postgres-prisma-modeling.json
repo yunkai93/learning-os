@@ -1,0 +1,45 @@
+{
+  "id": "m05-postgres-prisma-modeling",
+  "title": "PostgreSQL 与 Prisma 数据建模",
+  "purpose": "把会写接口升级为会表达真实业务数据关系，掌握表、关系、迁移、查询、分页筛选和基础聚合。",
+  "prerequisiteOutcomeIds": [
+    "o14-build-nest-crud",
+    "o15-validate-dto"
+  ],
+  "outcomes": [
+    {
+      "id": "o17-model-learning-domain",
+      "description": "能为课程包、module、outcome、session、evidence 建立关系模型",
+      "type": "skill"
+    },
+    {
+      "id": "o18-run-prisma-migrations",
+      "description": "能编写 Prisma schema、运行 migration，并理解 migration 对数据库结构的影响",
+      "type": "skill"
+    },
+    {
+      "id": "o19-query-relations-pagination",
+      "description": "能实现关联查询、分页、筛选、排序和基础统计",
+      "type": "skill"
+    },
+    {
+      "id": "o20-persist-learning-os-data",
+      "description": "把 Learning OS API 从内存/文件持久化迁移到 PostgreSQL",
+      "type": "artifact"
+    }
+  ],
+  "projectIds": [
+    "p03-learning-os-api"
+  ],
+  "estimatedSessionRange": {
+    "min": 7,
+    "max": 12
+  },
+  "exitCriteria": [
+    "能画出或讲清核心数据模型",
+    "能完成至少一次 schema 变更和 migration",
+    "能实现带关系和分页筛选的接口",
+    "能解释数据库约束和业务规则的分工"
+  ]
+}
+

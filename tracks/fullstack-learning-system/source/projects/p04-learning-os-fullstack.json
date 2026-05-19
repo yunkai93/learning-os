@@ -1,0 +1,33 @@
+{
+  "id": "p04-learning-os-fullstack",
+  "title": "Learning OS 全栈应用",
+  "purpose": "将后端 API 接入 React 前端，形成可操作的学习系统产品。",
+  "workspacePath": "workspace/fullstack-learning-system/projects/learning-os-fullstack",
+  "outcomeIds": [
+    "o25-type-api-client",
+    "o26-build-learning-dashboard",
+    "o27-handle-forms-and-validation",
+    "o28-integrate-fullstack-v1"
+  ],
+  "milestones": [
+    {
+      "id": "p04-m01",
+      "title": "登录和 API client"
+    },
+    {
+      "id": "p04-m02",
+      "title": "课程包与 session 列表/详情"
+    },
+    {
+      "id": "p04-m03",
+      "title": "创建、暂停、验收流程界面"
+    }
+  ],
+  "completionEvidence": [
+    "浏览器可操作核心流程",
+    "前后端联调截图或录屏说明",
+    "错误、加载、空状态处理",
+    "独立新增一个页面或表单"
+  ]
+}
+

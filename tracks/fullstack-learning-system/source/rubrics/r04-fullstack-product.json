@@ -1,0 +1,35 @@
+{
+  "id": "r04-fullstack-product",
+  "title": "React 联调与全栈产品验收",
+  "appliesToOutcomeIds": [
+    "o25-type-api-client",
+    "o26-build-learning-dashboard",
+    "o27-handle-forms-and-validation",
+    "o28-integrate-fullstack-v1"
+  ],
+  "criteria": [
+    {
+      "result": "pass",
+      "description": "用户能通过浏览器完成核心流程，前后端错误处理清楚，能独立新增一个页面或表单"
+    },
+    {
+      "result": "partial",
+      "description": "主流程可用，但类型边界、错误状态或联调解释不足"
+    },
+    {
+      "result": "fail",
+      "description": "前端只展示静态页面，未真实联调或无法定位联调问题"
+    }
+  ],
+  "evidenceRequirements": [
+    "浏览器操作记录或截图说明",
+    "API client 关键代码",
+    "登录态和错误状态验证",
+    "独立新增页面或表单"
+  ],
+  "independenceRules": [
+    "前端是学习者强项，默认要求更高独立度",
+    "如果后端联调依赖 Codex，必须补做请求链路解释"
+  ]
+}
+

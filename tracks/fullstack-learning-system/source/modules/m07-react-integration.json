@@ -1,0 +1,46 @@
+{
+  "id": "m07-react-integration",
+  "title": "React 前端联调与产品界面",
+  "purpose": "利用前端优势，把后端能力接成可用产品界面，同时补齐 TypeScript 前端类型、请求封装和登录态。",
+  "prerequisiteOutcomeIds": [
+    "o21-implement-register-login",
+    "o22-protect-current-user-routes",
+    "o24-secure-learning-os-api"
+  ],
+  "outcomes": [
+    {
+      "id": "o25-type-api-client",
+      "description": "能写带类型的 API client，处理登录态、错误、加载和空状态",
+      "type": "skill"
+    },
+    {
+      "id": "o26-build-learning-dashboard",
+      "description": "能实现课程包、session、进度、handoff 的核心页面",
+      "type": "artifact"
+    },
+    {
+      "id": "o27-handle-forms-and-validation",
+      "description": "能完成表单、列表、详情、筛选和前后端校验错误展示",
+      "type": "skill"
+    },
+    {
+      "id": "o28-integrate-fullstack-v1",
+      "description": "完成 Learning OS 全栈项目 v1，可通过浏览器操作核心流程",
+      "type": "artifact"
+    }
+  ],
+  "projectIds": [
+    "p04-learning-os-fullstack"
+  ],
+  "estimatedSessionRange": {
+    "min": 6,
+    "max": 10
+  },
+  "exitCriteria": [
+    "能登录并操作核心学习流程",
+    "前端能展示后端校验和业务错误",
+    "能解释前后端类型边界和请求封装职责",
+    "能独立新增一个简单页面和对应接口联调"
+  ]
+}
+

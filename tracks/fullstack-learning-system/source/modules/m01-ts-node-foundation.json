@@ -1,0 +1,42 @@
+{
+  "id": "m01-ts-node-foundation",
+  "title": "TypeScript 与 Node 工程入口",
+  "purpose": "让有前端经验但 TypeScript 薄弱的学习者，建立写后端代码前必须具备的类型、模块、运行脚本和最小工程直觉。",
+  "prerequisiteOutcomeIds": [],
+  "outcomes": [
+    {
+      "id": "o01-explain-ts-node-project",
+      "description": "能解释 package.json、脚本、tsconfig、src 目录和 Node 运行入口之间的关系",
+      "type": "concept"
+    },
+    {
+      "id": "o02-write-typed-functions",
+      "description": "能独立写出带参数、返回值、对象结构和数组处理的 TypeScript 函数",
+      "type": "skill"
+    },
+    {
+      "id": "o03-use-type-and-interface",
+      "description": "能用 type/interface 描述学习任务、学习回合、学习者画像等结构",
+      "type": "skill"
+    },
+    {
+      "id": "o04-read-basic-ts-errors",
+      "description": "能读懂常见 TypeScript 报错，并判断是类型不匹配、空值、属性缺失还是函数签名问题",
+      "type": "diagnostic"
+    }
+  ],
+  "projectIds": [
+    "p01-cli-learning-journal"
+  ],
+  "estimatedSessionRange": {
+    "min": 4,
+    "max": 8
+  },
+  "exitCriteria": [
+    "能从空目录跑通最小 TypeScript + Node 程序",
+    "能不照抄完成 5-8 个 TypeScript 小练习",
+    "能把学习系统中的一个概念建模成类型结构",
+    "能解释至少 3 类 TypeScript 报错的方向"
+  ]
+}
+

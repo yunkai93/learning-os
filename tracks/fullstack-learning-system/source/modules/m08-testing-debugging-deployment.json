@@ -1,0 +1,44 @@
+{
+  "id": "m08-testing-debugging-deployment",
+  "title": "测试、调试、部署与工程表达",
+  "purpose": "从做出来升级到像工程师一样交付：关键路径测试、排错流程、环境变量、部署、README 和项目讲述。",
+  "prerequisiteOutcomeIds": [
+    "o28-integrate-fullstack-v1"
+  ],
+  "outcomes": [
+    {
+      "id": "o29-write-critical-tests",
+      "description": "能为核心服务、鉴权和关键 API 写测试",
+      "type": "skill"
+    },
+    {
+      "id": "o30-debug-systematically",
+      "description": "能按前端、网络、后端、数据库、配置分层定位问题",
+      "type": "diagnostic"
+    },
+    {
+      "id": "o31-deploy-fullstack-app",
+      "description": "能完成基础部署，并说明环境变量、数据库连接和构建流程",
+      "type": "artifact"
+    },
+    {
+      "id": "o32-explain-project",
+      "description": "能用初级工程师面试语境讲清项目目标、结构、难点、取舍和问题定位",
+      "type": "skill"
+    }
+  ],
+  "projectIds": [
+    "p05-capstone-release"
+  ],
+  "estimatedSessionRange": {
+    "min": 6,
+    "max": 10
+  },
+  "exitCriteria": [
+    "关键 API 和业务规则有测试覆盖",
+    "能完成一次端到端部署或接近真实部署的演练",
+    "README 能让另一台机器复现运行",
+    "能讲述项目并回答基础追问"
+  ]
+}
+

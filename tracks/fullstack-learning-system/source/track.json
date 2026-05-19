@@ -1,0 +1,50 @@
+{
+  "id": "fullstack-learning-system",
+  "title": "全栈学习系统路线",
+  "version": "0.1.0",
+  "status": "ready",
+  "goal": "从 10 年前端背景出发，补齐 TypeScript、Node 后端、数据库、鉴权、测试、部署与工程表达能力，最终独立完成一个以 Learning OS 为主题的真实全栈项目。",
+  "targetLevel": "能够胜任初级全栈工程师：可独立拆需求、建模型、写接口、做前端联调、排错、测试、部署并讲清项目。",
+  "learnerAssumptions": [
+    "学习者有长期前端和 React 经验，但 TypeScript 薄弱",
+    "学习者后端零基础，需要建立 HTTP、数据建模、服务边界和鉴权思维",
+    "学习节奏按掌握程度推进，工作日 2-3 小时，周末可长时段",
+    "早期 Codex 优先给提示和检查，必要时协助，但必须记录独立程度",
+    "每个阶段都需要可见成果反馈，避免只学概念导致难以坚持"
+  ],
+  "moduleIds": [
+    "m01-ts-node-foundation",
+    "m02-node-cli-and-files",
+    "m03-http-and-native-api",
+    "m04-nest-api-foundation",
+    "m05-postgres-prisma-modeling",
+    "m06-auth-and-business-rules",
+    "m07-react-integration",
+    "m08-testing-debugging-deployment",
+    "m09-capstone-hardening"
+  ],
+  "projectIds": [
+    "p01-cli-learning-journal",
+    "p02-native-learning-api",
+    "p03-learning-os-api",
+    "p04-learning-os-fullstack",
+    "p05-capstone-release"
+  ],
+  "rubricIds": [
+    "r01-foundation",
+    "r02-api-backend",
+    "r03-database-auth",
+    "r04-fullstack-product",
+    "r05-engineering-readiness"
+  ],
+  "capstoneProjectId": "p05-capstone-release",
+  "constraints": [
+    "不按固定周数推进，必须通过 outcome 证据和 rubric",
+    "Codex 代写不能直接证明掌握，必须跟随独立变体任务或复述",
+    "每个 module 至少包含一个可运行或可演示产物",
+    "阶段推进时优先保持学习系统项目主线，不频繁更换业务题材",
+    "先建立后端基本模型，再进入复杂框架和部署"
+  ],
+  "createdAt": "2026-05-19T08:21:22.564Z",
+  "updatedAt": "2026-05-19T08:25:00Z"
+}

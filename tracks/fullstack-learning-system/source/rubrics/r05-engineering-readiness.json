@@ -1,0 +1,39 @@
+{
+  "id": "r05-engineering-readiness",
+  "title": "工程化、部署、讲述与强化验收",
+  "appliesToOutcomeIds": [
+    "o29-write-critical-tests",
+    "o30-debug-systematically",
+    "o31-deploy-fullstack-app",
+    "o32-explain-project",
+    "o33-implement-variant-features",
+    "o34-pass-timed-tasks",
+    "o35-fix-and-refactor",
+    "o36-capstone-ready"
+  ],
+  "criteria": [
+    {
+      "result": "pass",
+      "description": "项目可复现、可测试、可部署、可讲述，并能完成限时变体或排错任务"
+    },
+    {
+      "result": "partial",
+      "description": "项目可展示但测试、部署、讲述或限时能力存在明显短板"
+    },
+    {
+      "result": "fail",
+      "description": "项目无法稳定运行、缺少复现文档，或不能解释核心技术取舍"
+    }
+  ],
+  "evidenceRequirements": [
+    "测试通过输出",
+    "部署或复现步骤",
+    "README 和项目讲述稿",
+    "限时任务记录",
+    "bug 修复或重构记录"
+  ],
+  "independenceRules": [
+    "面试讲述必须由学习者自己完成",
+    "限时训练中 Codex 只能按约定帮助，结果必须标注独立程度"
+  ]
+}

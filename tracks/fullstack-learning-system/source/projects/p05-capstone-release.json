@@ -1,0 +1,41 @@
+{
+  "id": "p05-capstone-release",
+  "title": "Learning OS Capstone 发布版",
+  "purpose": "把项目整理成可运行、可部署、可讲述、可扩展的初级全栈工程师作品。",
+  "workspacePath": "workspace/fullstack-learning-system/capstone",
+  "outcomeIds": [
+    "o29-write-critical-tests",
+    "o30-debug-systematically",
+    "o31-deploy-fullstack-app",
+    "o32-explain-project",
+    "o33-implement-variant-features",
+    "o34-pass-timed-tasks",
+    "o35-fix-and-refactor",
+    "o36-capstone-ready"
+  ],
+  "milestones": [
+    {
+      "id": "p05-m01",
+      "title": "关键测试和部署演练"
+    },
+    {
+      "id": "p05-m02",
+      "title": "README、架构说明和项目讲述"
+    },
+    {
+      "id": "p05-m03",
+      "title": "至少 3 个强化变体功能"
+    },
+    {
+      "id": "p05-m04",
+      "title": "限时任务和模拟面试验收"
+    }
+  ],
+  "completionEvidence": [
+    "可运行部署地址或本地复现脚本",
+    "测试通过输出",
+    "项目 README",
+    "项目讲述稿",
+    "限时训练记录"
+  ]
+}

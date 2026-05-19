@@ -52,6 +52,29 @@ engine/prompts/create-track.md
 7. 更新状态、session 历史、进度和 handoff。
 8. 继续、暂停、切换课程包或阶段复盘。
 
+## 跨设备协作
+
+用户不需要手动记忆同步命令。正常使用时只需要告诉 Codex：
+
+```text
+今天继续
+暂停并同步
+换电脑恢复
+验收并保存
+```
+
+Codex 负责按照 `engine/policies/sync-flow.md` 执行：
+
+- 读取 state 和 handoff
+- 检查 git 状态
+- 拉取或提醒远端变化
+- 运行 `npm run status`
+- 运行 `npm run validate`
+- 更新 session、track state、handoff 和 journal
+- commit 和 push
+
+跨设备恢复只信任仓库事实源，不依赖上一台电脑的聊天记录。
+
 ## 设计保证
 
 - 课程内容和学习引擎解耦。
@@ -60,4 +83,3 @@ engine/prompts/create-track.md
 - 进度基于 outcome 和 evidence，不基于感觉。
 - 支持多课程包暂停与恢复。
 - 后续可以复用到新的学习目标。
-

@@ -1,0 +1,33 @@
+{
+  "id": "p02-native-learning-api",
+  "title": "原生 Node 学习记录 API",
+  "purpose": "不用框架先做出 HTTP API，理解后端请求响应本体。",
+  "workspacePath": "workspace/fullstack-learning-system/projects/native-learning-api",
+  "outcomeIds": [
+    "o09-explain-http-request-response",
+    "o10-build-native-routes",
+    "o11-handle-api-errors",
+    "o12-build-native-learning-api"
+  ],
+  "milestones": [
+    {
+      "id": "p02-m01",
+      "title": "GET/POST 学习记录 API 可运行"
+    },
+    {
+      "id": "p02-m02",
+      "title": "完成 PUT/PATCH/DELETE 与错误处理"
+    },
+    {
+      "id": "p02-m03",
+      "title": "用 curl 或 API client 完成 CRUD 验证"
+    }
+  ],
+  "completionEvidence": [
+    "API 请求和响应示例",
+    "错误状态码示例",
+    "学习者解释请求流",
+    "独立添加一个相邻接口"
+  ]
+}
+

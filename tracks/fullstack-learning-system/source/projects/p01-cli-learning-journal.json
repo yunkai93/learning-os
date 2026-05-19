@@ -1,0 +1,36 @@
+{
+  "id": "p01-cli-learning-journal",
+  "title": "学习日志 CLI",
+  "purpose": "用最小可运行程序建立 TypeScript、Node、文件读写和模块组织基础。",
+  "workspacePath": "workspace/fullstack-learning-system/projects/cli-learning-journal",
+  "outcomeIds": [
+    "o01-explain-ts-node-project",
+    "o02-write-typed-functions",
+    "o03-use-type-and-interface",
+    "o05-read-write-json-files",
+    "o06-parse-cli-args",
+    "o07-organize-node-modules",
+    "o08-build-cli-learning-journal"
+  ],
+  "milestones": [
+    {
+      "id": "p01-m01",
+      "title": "最小 TS + Node 程序可运行"
+    },
+    {
+      "id": "p01-m02",
+      "title": "完成 typed learning record 数据结构"
+    },
+    {
+      "id": "p01-m03",
+      "title": "完成 add/list/done 三个 CLI 命令"
+    }
+  ],
+  "completionEvidence": [
+    "命令行运行输出",
+    "本地 JSON 数据文件",
+    "学习者解释模块职责",
+    "一个独立完成的小变体命令"
+  ]
+}
+

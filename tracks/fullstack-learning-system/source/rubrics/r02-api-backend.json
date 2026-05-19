@@ -1,0 +1,39 @@
+{
+  "id": "r02-api-backend",
+  "title": "HTTP、原生 API 与 Nest 后端验收",
+  "appliesToOutcomeIds": [
+    "o09-explain-http-request-response",
+    "o10-build-native-routes",
+    "o11-handle-api-errors",
+    "o12-build-native-learning-api",
+    "o13-explain-nest-layers",
+    "o14-build-nest-crud",
+    "o15-validate-dto",
+    "o16-build-learning-os-api-v1"
+  ],
+  "criteria": [
+    {
+      "result": "pass",
+      "description": "API 可运行，能解释请求流和层次职责，能独立新增相邻接口或资源"
+    },
+    {
+      "result": "partial",
+      "description": "API 主流程可运行，但错误处理、职责边界或独立扩展存在缺口"
+    },
+    {
+      "result": "fail",
+      "description": "无法独立定位 API 问题，或只是照搬代码无法解释控制流"
+    }
+  ],
+  "evidenceRequirements": [
+    "API 请求响应记录",
+    "错误场景验证",
+    "学习者解释请求从进入到返回的过程",
+    "独立添加一个相邻接口或模块"
+  ],
+  "independenceRules": [
+    "如果 Nest 代码主要由 Codex 代写，必须补做原理复述和相邻模块任务",
+    "只有能独立处理错误场景，才允许后端 outcome 进入 demonstrated_solo"
+  ]
+}
+

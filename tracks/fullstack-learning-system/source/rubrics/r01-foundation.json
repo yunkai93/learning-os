@@ -1,0 +1,40 @@
+{
+  "id": "r01-foundation",
+  "title": "TypeScript、Node 与 CLI 基础验收",
+  "appliesToOutcomeIds": [
+    "o01-explain-ts-node-project",
+    "o02-write-typed-functions",
+    "o03-use-type-and-interface",
+    "o04-read-basic-ts-errors",
+    "o05-read-write-json-files",
+    "o06-parse-cli-args",
+    "o07-organize-node-modules",
+    "o08-build-cli-learning-journal"
+  ],
+  "criteria": [
+    {
+      "result": "pass",
+      "description": "能独立运行项目、完成基础 TS/Node 任务、解释核心结构，并完成一个小变体"
+    },
+    {
+      "result": "partial",
+      "description": "能在提示下完成产物，但解释不完整或独立变体失败"
+    },
+    {
+      "result": "fail",
+      "description": "无法运行项目、主要依赖 Codex 代写，或不能解释基本错误"
+    }
+  ],
+  "evidenceRequirements": [
+    "命令输出",
+    "代码 diff 或关键文件片段",
+    "学习者用自己的话解释",
+    "独立完成的小变体任务"
+  ],
+  "independenceRules": [
+    "codex_written 只能证明产物完成，不能证明 skill 掌握",
+    "hinted 可以进入 demonstrated_with_help",
+    "solo 且变体通过才允许进入 demonstrated_solo 或 mastered_for_now"
+  ]
+}
+

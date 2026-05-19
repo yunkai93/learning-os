@@ -1,0 +1,45 @@
+{
+  "id": "m09-capstone-hardening",
+  "title": "Capstone 强化与求职化训练",
+  "purpose": "在主项目基础上做变体、限时、排错和重构训练，把会做一次升级为稳定输出。",
+  "prerequisiteOutcomeIds": [
+    "o29-write-critical-tests",
+    "o31-deploy-fullstack-app",
+    "o32-explain-project"
+  ],
+  "outcomes": [
+    {
+      "id": "o33-implement-variant-features",
+      "description": "能在主项目上实现至少 3 个变体功能，例如多角色权限、操作日志、导出、搜索、提醒",
+      "type": "skill"
+    },
+    {
+      "id": "o34-pass-timed-tasks",
+      "description": "能完成 2 小时功能题、半天模块题和 1-2 天小冲刺",
+      "type": "diagnostic"
+    },
+    {
+      "id": "o35-fix-and-refactor",
+      "description": "能处理 bug 修复、接口重构、数据库模型调整和联调排错题",
+      "type": "skill"
+    },
+    {
+      "id": "o36-capstone-ready",
+      "description": "完成可展示、可运行、可讲述、可扩展的 Learning OS capstone",
+      "type": "artifact"
+    }
+  ],
+  "projectIds": [
+    "p05-capstone-release"
+  ],
+  "estimatedSessionRange": {
+    "min": 8,
+    "max": 16
+  },
+  "exitCriteria": [
+    "主项目具备可演示版本和扩展功能",
+    "能在限时任务中稳定完成中小功能",
+    "能独立定位并修复典型全栈问题",
+    "能以初级全栈工程师候选人的方式讲述项目"
+  ]
+}
