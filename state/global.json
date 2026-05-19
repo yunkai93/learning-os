@@ -1,11 +1,11 @@
 {
   "schemaVersion": "0.1.0",
   "activeTrackId": "fullstack-learning-system",
-  "activeSessionId": null,
+  "activeSessionId": "session-001",
   "maxInProgressTracks": 2,
   "recentTrackIds": [
     "fullstack-learning-system"
   ],
   "createdAt": "2026-05-19T08:28:16.321Z",
-  "updatedAt": "2026-05-19T08:28:16.321Z"
+  "updatedAt": "2026-05-19T09:10:00Z"
 }

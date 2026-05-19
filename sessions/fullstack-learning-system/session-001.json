@@ -1,0 +1,25 @@
+{
+  "id": "session-001",
+  "trackId": "fullstack-learning-system",
+  "title": "工程入口与最小 TypeScript + Node 程序",
+  "moduleId": "m01-ts-node-foundation",
+  "status": "paused",
+  "targetOutcomeIds": [
+    "o01-explain-ts-node-project",
+    "o02-write-typed-functions",
+    "o04-read-basic-ts-errors"
+  ],
+  "result": "unassessed",
+  "independence": "unknown",
+  "nextAction": "continue",
+  "evidence": [
+    "node -v => v24.14.1",
+    "npm -v => 11.11.0",
+    "pnpm -v => command not found"
+  ],
+  "weakPoints": [
+    "当前设备缺少 pnpm，需要先处理包管理器环境，或明确本轮使用 npm fallback"
+  ],
+  "createdAt": "2026-05-19T09:01:10Z",
+  "updatedAt": "2026-05-19T09:10:00Z"
+}
