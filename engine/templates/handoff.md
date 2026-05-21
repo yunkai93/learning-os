@@ -5,8 +5,10 @@
 - Track:
 - Track status:
 - Active session:
+- Session status:
 - Module:
 - Outcome:
+- Track nextStep:
 
 ## 上次 handoff 之后完成了什么
 
@@ -27,4 +29,3 @@
 ## 是否允许推进
 
 - Unknown
-

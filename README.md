@@ -13,20 +13,27 @@ Learning OS 是一个可复用、证据驱动的 Codex 辅助学习系统。
 
 当前已创建并激活第一条课程包：`fullstack-learning-system`。它是第一条试运行路线，用来验证 Learning OS 的课程包生成、session 规划、证据验收和跨设备协作流程。
 
-当前下一步由状态文件决定，不靠 README 手写判断。可以运行：
+当前下一步由状态文件决定，不靠 README 手写判断。README 只说明项目结构；恢复学习时必须以 `state/`、`sessions/` 和 `state/handoff/` 为事实源。可以运行：
 
 ```bash
 npm run learn -- doctor
 ```
 
-当前预期状态是：
+当前仓库状态是：
 
 - Active track: `fullstack-learning-system`
 - Current module: `m01-ts-node-foundation`
-- Active session: none
-- Next step: 规划试运行 `session-001`
+- Current session pointer: `session-001`
+- Session status: `paused`
+- Next step: 处理 `session-001` 环境 blocker：pnpm 当前不可用，优先启用/安装 pnpm，或明确本轮使用 npm fallback。
 
 ## 快速使用
+
+学习者只需要看：
+
+```text
+LEARNER.md
+```
 
 校验系统结构：
 
@@ -34,10 +41,36 @@ npm run learn -- doctor
 npm run validate
 ```
 
+`validate` 会同时检查：
+
+- 必需目录和文件是否存在。
+- state、session、track source 是否通过 JSON Schema。
+- active track、current session、handoff、session Markdown 是否一致。
+- session 引用的 module/outcome 是否存在且属于对应课程包。
+- workspace、sessions、journal 等课程包工作目录是否齐全。
+
 查看当前状态：
 
 ```bash
 npm run status
+```
+
+查看唯一下一步：
+
+```bash
+npm run learn -- next
+```
+
+检查本机 Node/npm/pnpm/corepack/git 环境：
+
+```bash
+npm run learn -- env-doctor
+```
+
+运行自动化测试：
+
+```bash
+npm test
 ```
 
 新增第二条课程包时，先创建课程包壳：

@@ -7,10 +7,20 @@
     "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
     "title": { "type": "string" },
     "appliesToOutcomeIds": { "type": "array", "items": { "type": "string" } },
-    "criteria": { "type": "array", "items": { "type": "object" } },
+    "criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["result", "description"],
+        "properties": {
+          "result": { "enum": ["pass", "partial", "fail"] },
+          "description": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
     "evidenceRequirements": { "type": "array", "items": { "type": "string" } },
     "independenceRules": { "type": "array", "items": { "type": "string" } }
   },
   "additionalProperties": false
 }
-

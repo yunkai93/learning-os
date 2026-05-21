@@ -146,6 +146,19 @@ Codex 负责选择清晰的提交信息。
 - 不允许创建新 session。
 - 只能继续、暂停、验收或失败该 session。
 - 如果 session 文件缺失，先修复状态或恢复文件，不能直接推进。
+- 如果 session 状态是 `paused`，它仍然是 current session；下一步是恢复或继续该 session，而不是清空指针或创建新 session。
+
+## 校验要求
+
+`npm run validate` 必须不只检查文件存在，还要检查这些一致性：
+
+- JSON 文件必须符合对应 schema。
+- `global.activeSessionId` 与 active track 的 `currentSessionId` 必须一致。
+- current session 不能是 `completed` 或 `failed`。
+- session 的 module/outcome 引用必须来自对应课程包 source。
+- session JSON 与 session Markdown 的状态、结果、独立程度和 next action 必须一致。
+- active track 的 handoff 必须反映 current session、module、session status、blocker 和唯一下一步。
+- 每个课程包必须有 `sessions/<track-id>/`、`workspace/<track-id>/`、`journal/tracks/<track-id>/`、`state/tracks/<track-id>.json` 和 `state/handoff/<track-id>.md`。
 
 ## 同步完成标准
 
@@ -156,4 +169,3 @@ Codex 负责选择清晰的提交信息。
 - 最新提交已推送到远端。
 - handoff 写明下一步唯一动作。
 - active session 和 track state 一致。
-

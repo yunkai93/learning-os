@@ -9,9 +9,19 @@
     "purpose": { "type": "string" },
     "workspacePath": { "type": "string" },
     "outcomeIds": { "type": "array", "items": { "type": "string" } },
-    "milestones": { "type": "array", "items": { "type": "object" } },
+    "milestones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
     "completionEvidence": { "type": "array", "items": { "type": "string" } }
   },
   "additionalProperties": false
 }
-

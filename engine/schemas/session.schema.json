@@ -2,10 +2,25 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "LearningSessionState",
   "type": "object",
-  "required": ["id", "trackId", "status", "targetOutcomeIds"],
+  "required": [
+    "id",
+    "trackId",
+    "title",
+    "moduleId",
+    "status",
+    "targetOutcomeIds",
+    "result",
+    "independence",
+    "nextAction",
+    "evidence",
+    "weakPoints",
+    "createdAt",
+    "updatedAt"
+  ],
   "properties": {
     "id": { "type": "string" },
     "trackId": { "type": "string" },
+    "title": { "type": "string" },
     "moduleId": { "type": ["string", "null"] },
     "status": {
       "enum": ["planned", "active", "paused", "assessing", "completed", "failed"]
@@ -17,8 +32,11 @@
     },
     "nextAction": {
       "enum": ["advance", "remediate", "repeat_smaller", "review_later", "revise_track", "continue"]
-    }
+    },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "weakPoints": { "type": "array", "items": { "type": "string" } },
+    "createdAt": { "type": "string" },
+    "updatedAt": { "type": "string" }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }
-

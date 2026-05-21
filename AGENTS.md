@@ -25,6 +25,7 @@
 - 面向用户和 Codex 阅读的约束、流程、handoff、roadmap、journal 默认使用中文；机器字段、JSON key、命令名和枚举值保持英文。
 - 每次任务都要诚实记录独立程度：`solo`、`hinted`、`assisted`、`codex_written`。
 - 全局同一时间只能有一个 active session。
+- `activeSessionId` 表示当前未闭环 session 指针；它可以指向 `paused` session，恢复时必须读取 session 文件状态。
 - 可以有多个课程包，也可以暂停多个课程包；切换课程包前必须保存当前课程包 handoff。
 - 卡住时进入补救流程，不允许直接跳过必需 outcome。
 - 每次学习结束必须更新 state、session 记录和 handoff。

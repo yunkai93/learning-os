@@ -47,5 +47,5 @@ Learning OS 的目标是把宽泛的学习目标变成课程包、学习 session
 - generated 文档不能覆盖 source JSON。
 - 不同课程包的证据不要混用。
 - 不要同时打开多个 active session。
+- `activeSessionId` 是 current session 指针，不等于 session 状态一定是 `active`；如果指向的是 `paused` session，必须恢复它。
 - 不要静默改变学习目标或技术决策。
-

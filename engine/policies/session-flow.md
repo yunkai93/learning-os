@@ -22,6 +22,16 @@
 5. 如果已有 active session，就继续它。
 6. 如果没有 active session，就从下一个可学习 outcome 或补救需求生成 session。
 
+## current session 指针
+
+`state/global.json.activeSessionId` 和 `state/tracks/<track-id>.json.currentSessionId` 表示当前课程包唯一未闭环 session 的指针。这个 session 可以是 `planned`、`active`、`paused` 或 `assessing`。
+
+- `active` / `assessing`：正在学习或正在验收。
+- `paused`：学习已暂停，但这仍然是下一次必须恢复的 session。
+- `completed` / `failed`：已经闭环，不能继续挂在 current session 指针上。
+
+因此，看到 `activeSessionId` 不等于 session 状态一定是 `active`。恢复时必须读取 session 文件里的 `status`，如果是 `paused`，先恢复它，不要创建新 session。
+
 ## session 大小
 
 一次 session 应该对应一个聚焦学习块。默认目标：
@@ -48,4 +58,3 @@
 ## 结束
 
 session 只有经过验收才能完成。如果证据不完整，应标记为 `paused` 或 `failed`，不能标记为 `completed`。
-

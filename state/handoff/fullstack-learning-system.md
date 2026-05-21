@@ -7,6 +7,7 @@
 - Active session: session-001
 - Session status: paused
 - Module: m01-ts-node-foundation
+- Track nextStep: 处理 session-001 环境 blocker：pnpm 当前不可用，优先启用/安装 pnpm，或明确本轮使用 npm fallback。
 - Outcome:
   - `o01-explain-ts-node-project`
   - `o02-write-typed-functions`
@@ -32,12 +33,12 @@
 
 ## 阻塞点
 
-- 当前设备缺少 pnpm。
+- pnpm 当前不可用：zsh:1: command not found: pnpm
 - 需要先决定：启用/安装 pnpm，或本轮使用 npm fallback。
 
 ## 下一步唯一动作
 
-- 处理 pnpm 环境 blocker：优先启用/安装 pnpm；如果暂时不处理，则明确本轮使用 npm fallback，并把决定记录到 session。
+- 处理 session-001 环境 blocker：pnpm 当前不可用，优先启用/安装 pnpm，或明确本轮使用 npm fallback。
 
 ## 是否允许推进
 
